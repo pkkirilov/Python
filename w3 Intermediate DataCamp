@@ -199,3 +199,12 @@ house = [["hallway", 11.25],
 # Build a for loop from scratch
 for i in house :
     print("the " + str(i[0]) + " is " + str(i[1]) + " sqm")  
+
+
+# Definition of dictionary
+europe = {'spain':'madrid', 'france':'paris', 'germany':'bonn', 
+          'norway':'oslo', 'italy':'rome', 'poland':'warsaw', 'australia':'vienna' }
+          
+# Iterate over europe
+for key,value in europe.items():
+    print("the capital of " + key + " is " + value)
