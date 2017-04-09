@@ -208,3 +208,27 @@ europe = {'spain':'madrid', 'france':'paris', 'germany':'bonn',
 # Iterate over europe
 for key,value in europe.items():
     print("the capital of " + key + " is " + value)
+    
+    # For loop over np_height
+for height in np_height:
+    print(str(height) + " inches")
+# For loop over np_baseball
+for baseball in np.nditer(np_baseball):
+    print(baseball)
+
+# Import cars data
+import pandas as pd
+cars = pd.read_csv('cars.csv', index_col = 0)
+
+# Iterate over rows of cars
+for lab, row in cars.iterrows():
+    print(lab)
+    print(row)
+    
+# Import cars data
+import pandas as pd
+cars = pd.read_csv('cars.csv', index_col = 0)
+
+# Adapt for loop
+for lab, row in cars.iterrows() :
+    print(lab + ": " + str(row['cars_per_cap']))
