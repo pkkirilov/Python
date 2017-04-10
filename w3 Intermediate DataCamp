@@ -243,3 +243,18 @@ for lab, row in cars.iterrows() :
 
 # Print cars
 print(cars)
+
+# Use .apply(str.upper)
+cars["COUNTRY"] = cars["country"].apply(str.upper)
+
+
+#----
+#random seeds
+# Import numpy as np
+import numpy as np
+
+# Set the seed
+np.random.seed(123)
+
+# Generate and print random float
+print(np.random.rand())
