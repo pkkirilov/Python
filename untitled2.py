@@ -4,7 +4,6 @@ Created on Sun Apr 23 09:07:54 2017
 
 @author: Rocky
 """
-
 from __future__ import division
 from sklearn import datasets
 from sklearn.linear_model import LinearRegression
