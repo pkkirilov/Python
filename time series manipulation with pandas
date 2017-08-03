@@ -4,6 +4,7 @@ Created on Mon Jul 17 06:42:50 2017
 
 @author: Rocky
 #playing around with getting data from google finance
+need to have a look at the paper for crack spread
 """
 
 import pandas_datareader.data as web
