@@ -10,6 +10,10 @@ from pandas import read_csv
 from pandas import datetime
 from matplotlib import pyplot
 from pandas.tools.plotting import autocorrelation_plot
+from pandas import DataFrame
+from statsmodels.tsa.arima_model import ARIMA
+
+
 file = "shampoo-sales1.csv"
 os.chdir("C:/Users/HP/Downloads")
 def parser(x):
@@ -20,3 +24,20 @@ print(series.head())
 series.plot()
 pyplot.show()
 #the dataset seems to be not stationary
+autocorrelation_plot(series)
+pyplot.show()
+#significant autocorr for the first five, thus AR(5)
+
+# fit model
+model = ARIMA(series, order=(5,1,0))
+model_fit = model.fit(disp=0)
+print(model_fit.summary())
+# plot residual errors
+residuals = DataFrame(model_fit.resid)
+residuals.plot()
+pyplot.show()
+#line plot of the residual errors, suggesting some trend information not captured by the model
+residuals.plot(kind='kde')
+pyplot.show()
+print(residuals.describe())
+#plotting the residual error values
