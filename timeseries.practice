@@ -1,0 +1,22 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Aug 27 16:36:36 2017
+
+@author: HP
+"""
+
+import os
+from pandas import read_csv
+from pandas import datetime
+from matplotlib import pyplot
+from pandas.tools.plotting import autocorrelation_plot
+file = "shampoo-sales1.csv"
+os.chdir("C:/Users/HP/Downloads")
+def parser(x):
+	return datetime.strptime('190'+x, '%Y-%m')
+heas = ["Month", "Sales"]
+series = read_csv('shampoo-sales1.csv', names=heas, parse_dates=[0], index_col=0, squeeze=True, date_parser=parser)
+print(series.head())
+series.plot()
+pyplot.show()
+#the dataset seems to be not stationary
