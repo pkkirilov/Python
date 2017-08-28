@@ -1,0 +1,18 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Aug 28 16:13:20 2017
+using FB's prophet library (need to istall pystan (from cmd, type: pip install pystan) in order to install fbprophet (pip install fbprophet) after which you can run the packages)
+@author: HP
+"""
+
+import pandas as pd
+import numpy as np
+from fbprophet import Prophet
+import matplotlib.pyplot as plt
+
+ 
+%matplotlib inline
+ 
+plt.rcParams['figure.figsize']=(20,10)
+plt.style.use('ggplot')
+
