@@ -1,0 +1,32 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Aug 29 11:51:42 2017
+
+@author: HP
+"""
+
+from fbprophet import Prophet
+import numpy as np
+import pandas as pd
+sales_df = pd.read_csv('C:/Users/HP/Downloads/retail_sales1.csv')
+sales_df.tail()
+
+
+sales_df = pd.read_csv('C:/Users/HP/Downloads/retail_sales1.csv', index_col='date', parse_dates=True)
+sales_df.head()
+#the below manipulations are needed as the prophet package requires columns "ds"and "y"
+df = sales_df.reset_index()
+df.head()
+df=df.rename(columns={'date':'ds', 'sales':'y'})
+df.head()
+df['y_orig'] = df['y'] # to save a copy of the original data..you'll see why shortly. 
+# log-transform y
+df['y'] = np.log(df['y'])
+model = Prophet() #instantiate Prophet
+model.fit(df) #fit the model with your dataframe
+future_data = model.make_future_dataframe(periods=6, freq = 'm')
+forecast_data = model.predict(future_data)
+forecast_data[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
+model.plot(forecast_data)
+model.plot_components(forecast_data)
+#this is to check the seasonality and trend components of the data
