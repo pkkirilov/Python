@@ -1,0 +1,13 @@
+#Given two integers a and b, which can be positive or negative, find the sum of all the numbers between including them too and return it. If the two numbers are equal return a or b.
+
+#Note: a and b are not ordered!
+
+def get_sum(a,b):
+    if a == b:
+        return a
+    else:
+        if b>a:
+            c = list(range(a,b+1,1))
+        else:
+                c = list(range(b,a+1,1))
+    return sum(c)
