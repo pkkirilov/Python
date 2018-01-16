@@ -11,3 +11,13 @@ def get_sum(a,b):
         else:
                 c = list(range(b,a+1,1))
     return sum(c)
+
+
+
+
+
+
+#Write a function called repeatStr which repeats the given string string exactly n times.
+
+def repeat_str(repeat, string):
+    return string*repeat
